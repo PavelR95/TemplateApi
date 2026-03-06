@@ -1,0 +1,11 @@
+services:
+  api_template:
+    build:
+      context: ..
+      dockerfile: ./deploy/Dockerfile
+    container_name: api_template
+    image: api_template:latest
+    ports:
+      - 8000:8000
+    env_file:
+      - ../.env
