@@ -1,0 +1,20 @@
+services:
+  witsml_data_api:
+    build:
+      context: ..
+      dockerfile: ./deploy/Dockerfile
+    container_name: witsml_data_api
+    image: witsml_data_api:latest
+    ports:
+      - 25004:8000
+    env_file:
+      - ../.env
+    networks:
+      tsp-net:
+        ipv4_address: 192.168.10.28
+
+networks:
+  tsp-net:
+    # driver: bridge
+    name: tsp-net-1
+    external: true

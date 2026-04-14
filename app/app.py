@@ -43,11 +43,11 @@ def application_factory() -> FastAPI:
     )
     logger.info(
         f"\nПриложение инициализировано: {settings.TITLE} Version[{settings.VERSION}]"
-        f"\n\tОписание приложения: {settings.DESCRIPTION}"
-        f"\n\tРежим отладки вкл/выкл:{settings.DEBUG}"
-        f"\n\tУровень логирования: {settings.LOG_LEVEL}"
-        f"\n\tHOST:PORT - {settings.SERVER_HOST}:{settings.SERVER_PORT}"
-        f"\n\tКоличество под процессов: {settings.SERVER_WORKERS}"
+        f"\n\t{settings.DESCRIPTION}"
+        f"\n\t{settings.DEBUG}"
+        f"\n\t{settings.LOG_LEVEL}"
+        f"\n\t{settings.SERVER_HOST}"
+        f"\n\t{settings.SERVER_PORT}"
     )
     return app
 

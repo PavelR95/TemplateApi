@@ -1,3 +1,5 @@
+# Base
+# Requirements
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
@@ -5,9 +7,9 @@ class Settings(BaseSettings):
 
     # Common settings
     DEBUG: bool = True
-    TITLE: str = "WITSML_DataApi"
-    DESCRIPTION: str = "API для передачи данных для WITSML-SERVER"
-    VERSION: str = "v1.0.0"
+    TITLE: str = "Application"
+    DESCRIPTION: str = "FastAPI and Uvicorn APP-SERVER"
+    VERSION: str = "v0.0.1"
 
     # Logger settings
     LOG_LEVEL_DEFAULT: str = "INFO"
@@ -28,13 +30,16 @@ class Settings(BaseSettings):
     SERVER_WORKERS_DEFAULT: int = 1
 
     # API settings
-    API_V1_BASE_ROUTER: str = "/witsml_data_api/api"
+    API_V1_BASE_ROUTER: str = "/api/v1/application"
 
     @property
     def SERVER_WORKERS(self):
         if self.SERVER_RELOAD is True:
             return 1
         return self.SERVER_WORKERS_DEFAULT
+
+    # Database settings
+    DATABASE_URL: str
 
     model_config = SettingsConfigDict(
         env_file=".env",
