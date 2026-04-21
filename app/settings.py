@@ -38,9 +38,6 @@ class Settings(BaseSettings):
             return 1
         return self.SERVER_WORKERS_DEFAULT
 
-    # Database settings
-    DATABASE_URL: str
-
     model_config = SettingsConfigDict(
         env_file=".env",
         env_file_encoding="utf-8",
